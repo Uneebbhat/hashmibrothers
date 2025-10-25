@@ -29,7 +29,7 @@ export default async function ProductDetailsPage() {
   };
 
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  // await new Promise((resolve) => setTimeout(resolve, 2000));
 
   return (
     <Section>
