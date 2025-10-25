@@ -1,6 +1,3 @@
-import Link from "next/link";
-import Image from "next/image";
-
 import {
   Card,
   CardContent,
@@ -8,7 +5,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "./ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function ProductCardSkeleton() {
