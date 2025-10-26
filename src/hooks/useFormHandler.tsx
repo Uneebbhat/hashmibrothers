@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { HandleOnChange, HandleOnFileChange } from "@/types/FormTypes";
+import { HandleOnChange, HandleOnFileChange } from "@/src/types/FormTypes";
 
 const useFormHandler = <T,>(initialState: T) => {
   const [formData, setFormData] = useState<T>(initialState);

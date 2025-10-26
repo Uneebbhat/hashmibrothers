@@ -1,17 +1,18 @@
 "use client";
 
+import usePasswordToggle from "@/src/hooks/usePasswordToggle";
+
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
-} from "@/components/ui/field";
+} from "@/src/components/ui/field";
 import { cn } from "@/src/lib/utils";
 import { Eye, EyeOff } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Spinner } from "@/components/ui/spinner";
-import usePasswordToggle from "@/hooks/usePasswordToggle";
+import { Input } from "@/src/components/ui/input";
+import { Button } from "@/src/components/ui/button";
+// import { Spinner } from "@/src/components/ui/spinner";
 
 export function ResetPasswordForm({
   className,
