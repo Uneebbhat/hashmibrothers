@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+
 import { useRef } from "react";
 import { Badge } from "./ui/badge";
 import { categories } from "@/src/data/data";

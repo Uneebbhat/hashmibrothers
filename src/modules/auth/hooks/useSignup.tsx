@@ -1,9 +1,9 @@
-import useFormHandler from "@/hooks/useFormHandler";
+import useFormHandler from "@/src/hooks/useFormHandler";
 
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { SignupDataProps } from "../types/types";
-import { HandleOnSubmit } from "@/types/FormTypes";
+import { HandleOnSubmit } from "@/src/types/FormTypes";
 
 const useSignup = () => {
   const router = useRouter();

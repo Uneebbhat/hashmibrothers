@@ -1,10 +1,10 @@
 "use client";
 
 import { cn } from "@/src/lib/utils";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Spinner } from "@/components/ui/spinner";
-import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
+import { Input } from "@/src/components/ui/input";
+import { Button } from "@/src/components/ui/button";
+// import { Spinner } from "@/src/components/ui/spinner";
+import { Field, FieldGroup, FieldLabel } from "@/src/components/ui/field";
 
 export function ForgotPasswordForm({
   className,
