@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import Section from "@/src/components/common/section";
-import ProductCard from "@/src/components/product-card";
+import ProductCard from "@/src/modules/products/components/product-card";
 import Container from "@/src/components/common/container";
-import ProductCardSkeleton from "@/src/components/product-skeleton";
+import ProductCardSkeleton from "@/src/modules/products/components/product-skeleton";
 
 import { Suspense } from "react";
 import { Badge } from "@/src/components/ui/badge";
