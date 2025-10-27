@@ -54,7 +54,7 @@ export default function Header() {
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem className="cursor-pointer">
-                    Profile
+                    <Link href={"/profile/1"}>Profile</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem className="cursor-pointer">
                     Orders
