@@ -7,19 +7,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/src/components/ui/card";
-import { Input } from "./ui/input";
-import { Button } from "./ui/button";
+import { Input } from "../../../components/ui/input";
+import { Button } from "../../../components/ui/button";
+import { ProductCardProps } from "../types/ProductTypes";
 
-interface ProductCardProps {
-  imageSrc: string;
-  productTitle: string;
-  productDescription: string;
-  quantity: string;
-  price: number;
-  inStock: number;
-}
-
-export default async function ProductCard({
+export default function ProductCard({
   imageSrc,
   productTitle,
   productDescription,
@@ -27,7 +19,6 @@ export default async function ProductCard({
   price,
   inStock,
 }: ProductCardProps) {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
   return (
     <Card className="group transition-shadow duration-300">
       {/* Product Link Area */}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ProductCard from "../product-card";
+import ProductCard from "../../modules/products/components/product-card";
 
 import { Button } from "../ui/button";
 
