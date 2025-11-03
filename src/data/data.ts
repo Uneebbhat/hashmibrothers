@@ -102,3 +102,38 @@ export const categories: Categories[] = [
     link: "/products/elderly-care",
   },
 ];
+
+export const products = [
+  {
+    id: "p1",
+    name: "Wireless Headphones",
+    category: "Medicine",
+    price: 129.99,
+    inStock: 35,
+    image: "/assets/medicine-cart.png",
+  },
+  {
+    id: "p2",
+    name: "Smart Watch",
+    category: "Personal Care",
+    price: 199.99,
+    inStock: 20,
+    image: "/assets/medicine-cart.png",
+  },
+  {
+    id: "p3",
+    name: "Office Chair",
+    category: "Home Essentials",
+    price: 299.99,
+    inStock: 12,
+    image: "/assets/medicine-cart.png",
+  },
+  {
+    id: "p4",
+    name: "Running Shoes",
+    category: "Lifestyle & Fitness",
+    price: 89.99,
+    inStock: 50,
+    image: "/assets/medicine-cart.png",
+  },
+];

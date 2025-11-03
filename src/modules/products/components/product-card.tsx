@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 
+import { useState } from "react";
 import {
   Card,
   CardContent,
@@ -19,6 +22,15 @@ export default function ProductCard({
   price,
   inStock,
 }: ProductCardProps) {
+  const [count, setCount] = useState(1);
+  const handleIncrease = () => {
+    setCount(count + 1);
+  };
+  const handleDecrease = () => {
+    if (count === 1) return;
+    setCount(count - 1);
+  };
+
   return (
     <Card className="group transition-shadow duration-300">
       {/* Product Link Area */}
@@ -63,15 +75,22 @@ export default function ProductCard({
           <Button
             variant="outline"
             className="w-8 h-8 font-bold text-lg flex items-center justify-center"
+            onClick={handleDecrease}
           >
             -
           </Button>
 
-          <Input type="number" min={1} value={1} className="w-16 text-center" />
+          <Input
+            type="number"
+            min={1}
+            value={count}
+            className="w-16 text-center"
+          />
 
           <Button
             variant="outline"
             className="w-8 h-8 font-bold text-lg flex items-center justify-center"
+            onClick={handleIncrease}
           >
             +
           </Button>
