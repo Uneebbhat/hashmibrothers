@@ -1,6 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import useGetAllProducts from "../hooks/useGetAllProducts";
+import useDeleteProduct from "@/src/modules/dashboard/products/hooks/useDeleteProduct";
+
 import {
   Card,
   CardContent,
@@ -11,14 +14,13 @@ import {
 import { Edit, Trash2 } from "lucide-react";
 import { Badge } from "@/src/components/ui/badge";
 import { Button } from "@/src/components/ui/button";
-import useDeleteProduct from "@/src/modules/dashboard/products/hooks/useDeleteProduct";
 
-interface ProductCardProps {
+export interface ProductCardProps {
   productImage: string;
   productName: string;
   inStock: number;
   price: number;
-  id: string;
+  _id: string;
 }
 
 export default function ProductCard({
@@ -27,18 +29,21 @@ export default function ProductCard({
   product: ProductCardProps;
 }) {
   const { mutate: deleteProduct, isPending } = useDeleteProduct();
+  const { products } = useGetAllProducts();
+  console.log(products);
 
   const handleDelete = () => {
     const confirmDelete = confirm(
       `Are you sure you want to delete "${product.productName}"?`
     );
     if (confirmDelete) {
-      deleteProduct(product.id);
+      deleteProduct(product._id);
+      console.log(product._id);
     }
   };
 
   return (
-    <Card className="group transition-shadow duration-300" key={product.id}>
+    <Card className="group transition-shadow duration-300" key={product._id}>
       <CardHeader className="flex flex-col items-center justify-center cursor-pointer h-full">
         <Image
           src={product.productImage}

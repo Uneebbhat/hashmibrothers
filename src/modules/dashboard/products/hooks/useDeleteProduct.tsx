@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 // --- API call ---
 const deleteProduct = async (productId: string) => {
@@ -9,7 +9,7 @@ const deleteProduct = async (productId: string) => {
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/delete-product`,
     {
       data: { productId },
-    } as any
+    }
   );
   return data;
 };
@@ -25,8 +25,15 @@ const useDeleteProduct = () => {
       // Invalidate the products cache to refetch the updated list
       queryClient.invalidateQueries({ queryKey: ["products"] });
     },
-    onError: (error: any) => {
-      console.error("❌ Error deleting product:", error);
+    onError: (error: unknown) => {
+      if (error instanceof AxiosError) {
+        console.error(
+          "❌ Error deleting product:",
+          error.response?.data || error.message
+        );
+      } else {
+        console.error(error);
+      }
     },
   });
 };

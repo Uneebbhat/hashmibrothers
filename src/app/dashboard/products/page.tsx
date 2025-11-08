@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import ProductCard from "@/src/modules/dashboard/products/components/product-card";
 import useGetAllProducts from "@/src/modules/dashboard/products/hooks/useGetAllProducts";
+
+import ProductCard, {
+  ProductCardProps,
+} from "@/src/modules/dashboard/products/components/product-card";
 // import ProductFilter from "@/src/modules/dashboard/products/components/product-filter";
 
 import { Plus } from "lucide-react";
@@ -10,6 +13,7 @@ import { Button } from "@/src/components/ui/button";
 
 export default function ProductsPage() {
   const { products } = useGetAllProducts();
+  console.log(`products: ${products}`);
 
   return (
     <div className="space-y-6">
@@ -35,8 +39,8 @@ export default function ProductsPage() {
       {/* ---- PRODUCTS GRID ---- */}
       {Array.isArray(products) && products.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {products.map((product: any) => (
-            <ProductCard key={product.id} product={product} />
+          {products.map((product) => (
+            <ProductCard key={product._id} product={product} />
           ))}
         </div>
       ) : (
