@@ -3,9 +3,7 @@
 import Link from "next/link";
 import useGetAllProducts from "@/src/modules/dashboard/products/hooks/useGetAllProducts";
 
-import ProductCard, {
-  ProductCardProps,
-} from "@/src/modules/dashboard/products/components/product-card";
+import ProductCard from "@/src/modules/dashboard/products/components/product-card";
 // import ProductFilter from "@/src/modules/dashboard/products/components/product-filter";
 
 import { Plus } from "lucide-react";
