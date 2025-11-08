@@ -8,7 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/src/components/ui/select";
-import { Save, Upload } from "lucide-react";
+import { Loader2, Save, Upload } from "lucide-react";
 import { categories } from "@/src/data/data";
 import { Input } from "@/src/components/ui/input";
 import { Button } from "@/src/components/ui/button";
@@ -17,21 +17,17 @@ import useAddProduct from "../hooks/useAddProduct";
 export default function AddProductForm() {
   const [selectedCategoryId, setSelectedCategoryId] = useState<string>("");
   const {
-    formData,
-    handleOnChange,
-    handleSubmit,
     loading,
-    isPending,
-    isSuccess,
-    isError,
-    error,
+    formData,
+    handleOnSubmit,
+    handleOnChange,
     handleOnFileChange,
   } = useAddProduct();
 
   return (
     <form
       className="space-y-6"
-      onSubmit={handleSubmit}
+      onSubmit={handleOnSubmit}
       encType="multipart/form-data"
     >
       {/* Product Name */}
@@ -71,7 +67,7 @@ export default function AddProductForm() {
             onValueChange={(v) => {
               handleOnChange({
                 target: { name: "category", value: v },
-              } as any);
+              });
             }}
           >
             <SelectTrigger className="w-full" id="category">
@@ -85,17 +81,6 @@ export default function AddProductForm() {
               ))}
             </SelectContent>
           </Select>
-
-          {/* Hidden fields so the native form submission includes both id and name */}
-          <input type="hidden" name="categoryId" value={selectedCategoryId} />
-          <input
-            type="hidden"
-            name="category"
-            value={
-              categories.find((c) => String(c.id) === selectedCategoryId)
-                ?.title ?? ""
-            }
-          />
         </div>
       </div>
 
@@ -162,9 +147,31 @@ export default function AddProductForm() {
 
       {/* Submit Button */}
       <div className="flex justify-end">
-        <Button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white">
-          <Save className="w-4 h-4" />
-          Save Product
+        <Button
+          className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white"
+          disabled={
+            loading ||
+            !formData.productName ||
+            !formData.category ||
+            !formData.price ||
+            !formData.inStock ||
+            !formData.quantity ||
+            !formData.productDescription ||
+            !formData.productImage
+          }
+        >
+          {loading ? (
+            <>
+              <Loader2 className="animate-spin" />
+              <Save className="w-4 h-4" />
+              Saving Product
+            </>
+          ) : (
+            <>
+              <Save className="w-4 h-4" />
+              Save Product
+            </>
+          )}
         </Button>
       </div>
     </form>
